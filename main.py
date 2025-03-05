@@ -157,4 +157,5 @@ async def messages(msg:TeamsMessage):
     return JSONResponse(content={"type": "message", "text": next_question})
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.getenv("PORT", 8000))  # Render assigns PORT dynamically
+    uvicorn.run(app, host="0.0.0.0", port=port)
